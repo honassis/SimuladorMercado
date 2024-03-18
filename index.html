@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Mercado</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caixa de Supermercado</title>
+<style>
+  .caixa-supermercado {
+    width: 300px; /* Ajuste conforme necessário */
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .caixa-supermercado input[type="text"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 5px;
+  }
+</style>
 </head>
 <body>
-    
+
+<div class="caixa-supermercado">
+  <input type="text" id="codigo-produto" placeholder="Código de barras" autofocus>
+</div>
+
+<script>
+  document.getElementById("codigo-produto").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const codigoProduto = event.target.value;
+      // Aqui você pode adicionar a lógica para processar o código do produto
+      console.log("Código do produto:", codigoProduto);
+      event.target.value = ""; // Limpa o input após o processamento
+    }
+  });
+</script>
+
 </body>
 </html>
